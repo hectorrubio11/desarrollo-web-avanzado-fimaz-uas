@@ -16,6 +16,7 @@
         echo $e->getMessage();
     }
 
+    echo $objAlumno->getNombre() . "<br>";
     echo $objAlumno->getCorreo() . "<br>";
     echo $objAlumno->getRol() . "<br>";
 
@@ -26,6 +27,7 @@
     } catch (Exception $e){
         echo $e->getMessage();
     }
+
     echo $objAdmin->getCorreo();
     echo $objAdmin->getRol();
 
