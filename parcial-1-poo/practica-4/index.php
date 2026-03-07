@@ -27,7 +27,8 @@
             <th>Nombre</th>
             <th>Correo</th>
             <th>Rol</th>
-            <th>Empresa/Matricula</th>
+            <th>Matricula</th>
+            <th>Empresa</th>
         </tr>
     </thead>
     <tbody>
@@ -42,13 +43,20 @@
             <td>
                 <?php
                 if ($usuario instanceof Alumno) {
-                    echo $usuario->getMatricula();
-                } elseif ($usuario instanceof Invitado) {
-                    echo $usuario->getEmpresa();
+                    echo $usuario->getMatricula(); 
                 } else {
                     echo "-";
                 }
                 ?>
+            </td>
+            <td>
+                <?php  
+                if ($usuario instanceof Invitado) {
+                    echo $usuario->getEmpresa();
+                } else {
+                    echo "-";
+                }
+                ?>   
             </td>
         </tr>
 
