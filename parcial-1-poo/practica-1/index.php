@@ -1,9 +1,8 @@
 <?php
+
     include "Usuario.php";
-    //instancia de clase
     $objUsuario = new Usuario();
 
-    //establecemos e imprimimos el valor de nombre
     $objUsuario->setNombre("Hector Rubio");
     echo "Mi nombre es: ".$objUsuario->getNombre();
     echo "<br>";
