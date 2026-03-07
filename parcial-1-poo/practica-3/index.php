@@ -26,6 +26,7 @@
     } catch (Exception $e){
         echo $e->getMessage();
     }
+    echo $objAdmin->getCorreo();
     echo $objAdmin->getRol();
 
 
