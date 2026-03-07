@@ -7,11 +7,13 @@
     $usuarios = [];
 
     try{
-
+        //estos elementos son válidos y se agregan al arreglo
         $objAdmin = new Admin("Luis","luisct@gmail.com");
         $usuarios[] = $objAdmin;
         $objAlumno = new Alumno("Hector","hectorrubaya76@gmail.com","20888597");
         $usuarios[] = $objAlumno;
+
+        //este correo es inválido, termina con el try y pasa al catch
         $objInvitado = new Invitado("Marvin","correo invalido","RIU");
         $usuarios[] = $objInvitado;
         
