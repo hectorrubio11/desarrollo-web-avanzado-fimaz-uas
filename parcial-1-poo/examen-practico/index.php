@@ -12,6 +12,7 @@
         $usuarios[] = $objAlumno;
 
         $objAdminError = new Admin("Carlos","correo,invalido");
+        $usuarios[] = $objAlumno;
     } catch (Exception $e){
         echo $e->getMessage();
     }
