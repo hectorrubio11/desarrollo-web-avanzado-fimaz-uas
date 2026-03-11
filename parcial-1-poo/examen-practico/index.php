@@ -7,8 +7,10 @@
     try{
         $objAdmin = new Admin("Hector Rubio","hectorrubaya76@gmail.com");
         $usuarios[] = $objAdmin;
-        $objAlumno = new Alumno("Lennyn Hernandez","lennyn@gmail.com",207777);
+
+        $objAlumno = new Alumno("Lennyn Hernandez","lennyn16@gmail.com",207777);
         $usuarios[] = $objAlumno;
+
         $objAdminError = new Admin("Carlos","correo,invalido");
     } catch (Exception $e){
         echo $e->getMessage();
