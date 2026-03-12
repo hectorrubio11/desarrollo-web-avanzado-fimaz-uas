@@ -4,9 +4,6 @@
 
     $usuarios = []; 
 
-    /**
-     * 
-     */
     try{
         $objAdmin = new Admin("Hector Rubio","hectorrubaya76@gmail.com");
         $usuarios[] = $objAdmin;
