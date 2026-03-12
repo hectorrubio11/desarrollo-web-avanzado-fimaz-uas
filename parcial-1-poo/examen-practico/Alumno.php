@@ -11,10 +11,16 @@
             $this->matricula = $matricula;
         }
 
+        /**
+         * @return string
+         */
         public function getMatricula(){
             return $this->matricula;
         }
 
+        /**
+         * @return string
+         */
         public function getRol(){
             return "Alumno";
         }
