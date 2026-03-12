@@ -4,6 +4,9 @@
 
     $usuarios = []; 
 
+    /**
+     * 
+     */
     try{
         $objAdmin = new Admin("Hector Rubio","hectorrubaya76@gmail.com");
         $usuarios[] = $objAdmin;
@@ -11,6 +14,7 @@
         $objAlumno = new Alumno("Lennyn Hernandez","lennyn16@gmail.com",207777);
         $usuarios[] = $objAlumno;
 
+        //este usuario falla
         $objAdminError = new Admin("Carlos","correo,invalido");
         $usuarios[] = $objAlumno;
     } catch (Exception $e){
