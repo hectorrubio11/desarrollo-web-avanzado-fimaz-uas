@@ -121,7 +121,7 @@ $logs = $pdo->query("SELECT * FROM logs_alumnos ORDER BY idLog DESC")->fetchAll(
             button{padding: 10px 14px; border: 0; border-radius: 8px; cursor: pointer;}
             .btn{background: #0b5ed7; color: white;}
             .btn:hover{opacity: .9;}
-            .msg{padding: 10px; border-radius: 8px; background: #f5f5f5;}
+            .msg{padding: 10px; border-radius: 8px; background: #d1e7dd;}
             .small{font-size: 12px; color: #666;}
             table{border-collapse: collapse; width: 100%;}
             th, td{border: 1px solid #ddd; padding: 8px; text-align: left;}
@@ -131,5 +131,100 @@ $logs = $pdo->query("SELECT * FROM logs_alumnos ORDER BY idLog DESC")->fetchAll(
     </head>
     <body>
         <h2>Práctica: try/catch y transacciones (PDO + MySQL)</h2>
+        <div class="card">
+            <form method="POST">
+                <div class="row">
+                    <div>
+                        <label>Nombre</label>
+                        <input type="text" name="nombre" maxlength="15" value="<?= htmlspecialchars($_POST['nombre'] ?? 'Hectorin') ?>">
+                    </div>
+                    <div>
+                        <label>Apellido</label>
+                        <input type="text" name="apellido" maxlength="10" value="<?= htmlspecialchars($_POST['apellido'] ?? 'Rubio') ?>">
+                    </div>
+                    <div>
+                        <label>Correo</label>
+                        <input type="email" name="correo" maxlength="50" value="<?= htmlspecialchars($_POST['correo'] ?? 'hectorrubaya76@gmail.com') ?>">
+                    </div>
+                </div>
+
+                <p>
+                    <label style="font-weight: normal">
+                        <input type="checkbox" name="simular_error" <?= isset($_POST['simular_error']) ? 'checked':'' ?>>
+                        Simular error para forzar rollback
+                    </label>
+                    <span class="small">(Activa para comprobar que no se guarda nada si falla un paso)</span>
+                </p>
+
+                <button class="btn" type="submit">Registrar alumno</button>
+            </form>
+            <?php if ($mensaje): ?>
+                <p class="msg"><?= htmlspecialchars($mensaje) ?></p>
+                <?php if ($detalle): ?>
+                    <p class="small danger">Detalle (solo desarrollo): <?= htmlspecialchars($detalle) ?></p>
+                <?php endif; ?>
+            <?php endif; ?>
+        </div>
+
+        <div class="card">
+            <h3>Tabla alumnos</h3>
+            <?php if (!$alumnos): ?>
+                <p class="small">Sin registros.</p>
+            <?php else: ?>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>Nombre</th>
+                            <th>Apellido</th>
+                            <th>Correo</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <?php foreach ($alumnos as $a): ?>
+                            <tr>
+                                <td><?= htmlspecialchars($a['idAlumno']) ?></td>
+                                <td><?= htmlspecialchars($a['nombre']) ?></td>
+                                <td><?= htmlspecialchars($a['apellido']) ?></td>
+                                <td><?= htmlspecialchars($a['correo']) ?></td>
+                            </tr>
+                        <?php endforeach; ?>
+                    </tbody>
+                </table>
+            <?php endif; ?>
+        </div>
+
+        <div class="card">
+            <h3>Tabla logs_alumnos</h3>
+            <?php if (!$logs): ?>
+                <p class="small">Sin registros.</p>
+            <?php else: ?>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>ID Log</th>
+                            <th>ID Alumno</th>
+                            <th>Acción</th>
+                            <th>Fecha</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <?php foreach ($logs as $l): ?>
+                            <tr>
+                                <td><?= htmlspecialchars($l['idLog']) ?></td>
+                                <td><?= htmlspecialchars($l['idAlumno']) ?></td>
+                                <td><?= htmlspecialchars($l['accion']) ?></td>
+                                <td><?= htmlspecialchars($l['fecha']) ?></td>
+                            </tr>
+                        <?php endforeach; ?>
+                    </tbody>
+                </table>
+            <?php endif; ?>
+        </div>
+        
+        <p class="small">
+            Prueba recomendada: 1) Registrar sin simular error (COMMIT).
+            2.) Activar "Simular error" y registrar (ROLLBACK).
+        </p>
     </body>
 </html>
