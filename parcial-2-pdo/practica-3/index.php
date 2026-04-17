@@ -99,7 +99,7 @@ if($_SERVER["REQUEST_METHOD"] === "POST"){
 }
 
 /**
- * CONSULTAS PARA MOSTRAR TABLAS
+ * CONSULTA PARA MOSTRAR TABLAS
  */
 
 $alumnos = $pdo->query("SELECT * FROM alumnos ORDER BY idAlumno DESC")->fetchAll();
