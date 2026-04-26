@@ -2,6 +2,7 @@
 
 namespace controllers;
 use PDO;
+use PDOException;
 use models\producto;
 use config\database;
 
@@ -14,16 +15,24 @@ class ProductoController{
     }
 
     public function crear(Producto $producto){
-        $sql = "INSERT INTO productos (nombre, descripcion, existencia, precio)
-        VALUES (:nombre, :descripcion, :existencia, :precio)";
-        $stmt = $this->connection->prepare($sql);
 
-        $stmt->bindValue(':nombre', $producto->getNombre());
-        $stmt->bindValue(':descripcion', $producto->getDescripcion());
-        $stmt->bindValue(':existencia', $producto->getExistencia(), PDO::PARAM_INT);
-        $stmt->bindValue(':precio', $producto->getPrecio());
+        try{
 
-        return $stmt->execute();
+            $sql = "INSERT INTO productos (nombre, descripcion, existencia, precio)
+            VALUES (:nombre, :descripcion, :existencia, :precio)";
+            $stmt = $this->connection->prepare($sql);
+
+            $stmt->bindValue(':nombre', $producto->getNombre());
+            $stmt->bindValue(':descripcion', $producto->getDescripcion());
+            $stmt->bindValue(':existencia', $producto->getExistencia(), PDO::PARAM_INT);
+            $stmt->bindValue(':precio', $producto->getPrecio());
+
+            return $stmt->execute();
+        
+        } catch (PDOException $e){
+            return false;
+            //en caso de un error con un supuesto archivo log, aquí debería estar
+        }
     }
 
     public function listar(){
@@ -44,29 +53,44 @@ class ProductoController{
     }
 
     public function actualizar(Producto $producto){
-        $sql = "UPDATE productos SET
-        nombre = :nombre, 
-        descripcion = :descripcion, 
-        existencia = :existencia, 
-        precio = :precio
-        WHERE id = :id";
-        $stmt = $this->connection->prepare($sql);
+        try{
 
-        $stmt->bindValue(':id', $producto->getId(), PDO::PARAM_INT);
-        $stmt->bindValue(':nombre', $producto->getNombre());
-        $stmt->bindValue(':descripcion', $producto->getDescripcion());
-        $stmt->bindValue(':existencia', $producto->getExistencia(), PDO::PARAM_INT);
-        $stmt->bindValue(':precio', $producto->getPrecio());
+            $sql = "UPDATE productos SET
+            nombre = :nombre, 
+            descripcion = :descripcion, 
+            existencia = :existencia, 
+            precio = :precio
+            WHERE id = :id";
+            $stmt = $this->connection->prepare($sql);
 
-        return $stmt->execute();
+            $stmt->bindValue(':id', $producto->getId(), PDO::PARAM_INT);
+            $stmt->bindValue(':nombre', $producto->getNombre());
+            $stmt->bindValue(':descripcion', $producto->getDescripcion());
+            $stmt->bindValue(':existencia', $producto->getExistencia(), PDO::PARAM_INT);
+            $stmt->bindValue(':precio', $producto->getPrecio());
+
+            return $stmt->execute();
+
+        } catch (PDOException $e){
+            return false;
+            //en caso de un error con un supuesto archivo log, aquí debería estar
+        }
     }
 
     public function eliminar($id){
-        $sql = "DELETE FROM productos WHERE id = :id;";
-        $stmt = $this->connection->prepare($sql);
-        $stmt->bindValue(':id', $id, PDO::PARAM_INT);
         
-        return $stmt->execute();
+        try{
+
+            $sql = "DELETE FROM productos WHERE id = :id;";
+            $stmt = $this->connection->prepare($sql);
+            $stmt->bindValue(':id', $id, PDO::PARAM_INT);
+            
+            return $stmt->execute();
+
+        } catch (PDOException $e){
+            return false;
+            //en caso de un error con un supuesto archivo log, aquí debería estar
+        }
     }
 
     public function buscar($termino){
