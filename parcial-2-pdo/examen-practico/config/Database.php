@@ -1,5 +1,7 @@
 <?php
 
+//Hector Armando Rubio Ayala
+
 namespace config;
 use PDO;
 use PDOException;

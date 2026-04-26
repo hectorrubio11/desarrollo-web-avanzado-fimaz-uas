@@ -1,5 +1,9 @@
 <?php
 
+
+//Hector Armando Rubio Ayala
+
+
 namespace models;
 class Producto{
     private $id;

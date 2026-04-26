@@ -1,5 +1,7 @@
 <?php
 
+//Hector Armando Rubio Ayala
+
 spl_autoload_register(function ($clase){
     $ruta = __DIR__ . '/' .str_replace('\\','/',$clase) . '.php';
     require $ruta;
