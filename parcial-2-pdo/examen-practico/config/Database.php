@@ -1,8 +1,12 @@
 <?php
 
+namespace config;
+use PDO;
+use PDOException;
+
 class Database {
     private $host = "localhost";
-    private $dbname = "phppdodb";
+    private $dbname = "phppdobd";
     private $username = "root";
     private $password = "";
     private $connection;
