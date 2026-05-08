@@ -7,7 +7,7 @@
             CAPTURAR LA INFORMACIÓN DEL TORNEO
         </div>
         <div class="card-body">
-            <form action="" method="post">
+            <form action="torneosInsert.php" method="post">
                 <div class="mb-3">
                     <label for="nombreTorneo" class="form-label">
                         NOMBRE DEL TORNEO
@@ -27,8 +27,7 @@
                         PATROCINADOR(ES)
                     </label>
                     <textarea type="text" class="form-control" 
-                    name="txtPatrocinador" id="patrocinador" cols="30" rows="2">
-                    </textarea>
+                    name="txtPatrocinador" id="patrocinador" cols="30" rows="2"></textarea>
                     <span class="form-text" id="patrocinador">
                         Atención: se puede separar con "," si hay 
                         más de un patrocinador.

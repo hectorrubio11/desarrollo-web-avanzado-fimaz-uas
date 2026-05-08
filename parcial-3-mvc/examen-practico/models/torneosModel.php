@@ -22,9 +22,12 @@
             $contrasena = $this->passwordEncrypt($contrasena);
             //Iniciamos declarando el statement y preparando la consulta
             $statement = $this->PDO->prepare(
-                "INSERT INTO torneos VALUES (null, :nombreTorneo,
+                "INSERT INTO torneos (id, nombreTorneo,
+                organizador, patrocinadores, sede, categoria,
+                premio1, premio2, premio3, otroPremio, usuario, contrasena)
+                VALUES (null, :nombreTorneo,
                 :organizador, :patrocinadores, :sede, :categoria,
-                :premio1, :premio2, :premio3, :usuario, :contrasena)"
+                :premio1, :premio2, :premio3, :otroPremio, :usuario, :contrasena)"
             );
             $statement->bindParam(":nombreTorneo",$nombreTorneo);
             $statement->bindParam(":organizador",$organizador);
