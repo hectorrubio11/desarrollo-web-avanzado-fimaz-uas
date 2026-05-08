@@ -18,7 +18,7 @@
 
                         <a href="frmTorneos.php" class="btn btn-primary">
                             <img src="../img/torneo-admin.jpg" alt="Crear un torneo."
-                            width="200">
+                            height="200">
                         </a>
 
                     </div>
@@ -31,7 +31,10 @@
                         LISTA DE TORNEOS
                     </div>
                     <div class="card-body">
-
+                        <a href="readAllTorneos.php" class="btn btn-primary">
+                            <img src="../img/torneo-lista.jpg" alt="Listar torneos."
+                            height="200">
+                        </a>
                     </div>
                     
                 </div>
