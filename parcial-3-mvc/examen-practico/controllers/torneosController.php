@@ -18,12 +18,12 @@
         //de datos del torneo
 
         public function saveTorneo($nombreTorneo, $organizador, $patrocinadores,
-        $sede, $categoria, $premio1, $premio2, $premio3, $usuario, $contrasena){
+        $sede, $categoria, $premio1, $premio2, $premio3, $otroPremio, $usuario, $contrasena){
             //Recordemos que la función insert del modelo, regresa
             //el último id generado
             $id = $this->modelo->insert($nombreTorneo, $organizador,
             $patrocinadores, $sede, $categoria, $premio1, 
-            $premio2, $premio3, $usuario, $contrasena);
+            $premio2, $premio3, $otroPremio, $usuario, $contrasena);
             return ($id != false) ? header("Location: mainTorneos.php") : header("Location: frmTorneos.php");
         }
     }

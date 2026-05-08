@@ -17,7 +17,7 @@
 
         //Método para hacer un INSERT en la BD, en la tabla "torneos"
         public function insert($nombreTorneo, $organizador, $patrocinadores,
-        $sede, $categoria, $premio1, $premio2, $premio3, $usuario, $contrasena){
+        $sede, $categoria, $premio1, $premio2, $premio3, $otroPremio, $usuario, $contrasena){
             //Encriptar contraseña asignada al organizador del torneo 
             $contrasena = $this->passwordEncrypt($contrasena);
             //Iniciamos declarando el statement y preparando la consulta
@@ -34,6 +34,7 @@
             $statement->bindParam(":premio1",$premio1);
             $statement->bindParam(":premio2",$premio2);
             $statement->bindParam(":premio3",$premio3);
+            $statement->bindParam(":otroPremio",$otroPremio);
             $statement->bindParam(":usuario",$usuario);
             $statement->bindParam(":contrasena",$contrasena);
 
