@@ -26,5 +26,10 @@
             $premio2, $premio3, $otroPremio, $usuario, $contrasena);
             return ($id != false) ? header("Location: admin.php") : header("Location: frmTorneos.php");
         }
+
+        //Método que manda a ejecutar la función read del modelo del torneo.
+        public function readTorneo(){
+            return ($this->modelo->read()) ? $this->modelo->read() : false;
+        }
     }
 ?>
