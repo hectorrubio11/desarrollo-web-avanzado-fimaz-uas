@@ -31,5 +31,11 @@
         public function readTorneo(){
             return ($this->modelo->read()) ? $this->modelo->read() : false;
         }
+
+        //Método para ejecutar la función readOne del modelo torneo
+        public function readOneTorneo($id){
+            return ($this->modelo->readOne($id) != false) ? $this->modelo->readOne($id) 
+            : header("Location: admin.php");
+        }
     }
 ?>

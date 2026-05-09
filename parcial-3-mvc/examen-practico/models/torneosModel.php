@@ -67,6 +67,16 @@
             );
             return ($statement->execute()) ? $statement->fetchAll() : false;
         }
+
+        //Método para devolver la información de un torneo
+        public function readOne($id){
+            $statement = $this->PDO->prepare(
+                "SELECT * FROM TORNEOS
+                WHERE id = :id LIMIT 1"
+            );
+            $statement->bindParam(":id",$id);
+            return ($statement->execute()) ? $statement->fetch() : false;
+        }
     }
 
 ?>

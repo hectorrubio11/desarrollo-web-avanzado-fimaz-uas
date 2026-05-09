@@ -32,6 +32,10 @@
                                 <th><?= $row['organizador'] ?></th>
                                 <th>
                                     ACCIONES: LEE UNO, EDITAR, ELIMINAR
+                                    <a href="readOneTorneo.php?id=<?=$row['id'] ?>" 
+                                    class="btn btn-primary">
+                                        Consultar
+                                    </a>
                                 </th>
                             </tr>
                         <?php endforeach; ?>
