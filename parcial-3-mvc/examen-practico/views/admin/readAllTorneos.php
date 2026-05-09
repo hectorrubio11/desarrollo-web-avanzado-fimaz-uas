@@ -36,6 +36,10 @@
                                     class="btn btn-primary">
                                         Consultar
                                     </a>
+                                    <a href="updateTorneo.php?id=<?=$row['id'] ?>" 
+                                    class="btn btn-primary">
+                                        Editar
+                                    </a>
                                 </th>
                             </tr>
                         <?php endforeach; ?>

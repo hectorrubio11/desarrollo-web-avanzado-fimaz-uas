@@ -37,5 +37,15 @@
             return ($this->modelo->readOne($id) != false) ? $this->modelo->readOne($id) 
             : header("Location: admin.php");
         }
+
+        //Método que manda llamar la función update del modelo
+        public function updateTorneo($id, $nombreTorneo, $organizador, $patrocinadores,
+        $sede, $categoria, $premio1, $premio2, $premio3, $otroPremio){
+
+            return ($this->modelo->update($id, $nombreTorneo, $organizador, $patrocinadores,
+            $sede, $categoria, $premio1, $premio2, $premio3, $otroPremio)) != false ? 
+            header("Location: readOneTorneo.php?id=".$id) 
+            : header("Location: readAll.php") ;
+        }
     }
 ?>
