@@ -47,5 +47,11 @@
             header("Location: readOneTorneo.php?id=".$id) 
             : header("Location: readAll.php") ;
         }
+
+        //Método que mande a llamar a la función delete del modelo
+        public function delete($id){
+            return ($this->modelo->delete($id)) ? header("Location: readAllTorneos.php") 
+            : header("Location: readOneTorneo.php?id=.$id");
+        }
     }
 ?>
