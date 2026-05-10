@@ -2,9 +2,10 @@
     require_once("../admin/template/header.php");
 ?>
 
+<div class="mx-auto p-5">
     <div class="card">
         <div class="card-header">
-            CAPTURAR LA INFORMACIÓN DEL TORNEO
+            <span class="fa-solid fa-trophy"></span> CAPTURAR LA INFORMACIÓN DEL TORNEO
         </div>
         <div class="card-body">
             <form action="torneosInsert.php" method="post">
@@ -129,7 +130,7 @@
             FORMULARIO PARA REGISTRAR TORNEOS
         </div>
     </div>
-
+</div>
 
 <?php
     require_once("../admin/template/footer.php");
