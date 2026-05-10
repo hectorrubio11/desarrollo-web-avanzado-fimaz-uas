@@ -1,5 +1,7 @@
 <?php
+
     require_once("../admin/template/header.php");
+    //Hector Armando Rubio Ayala LISI 3-1
 ?>
 
 <div class="mx-auto p-5">

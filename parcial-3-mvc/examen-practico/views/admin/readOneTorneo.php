@@ -1,4 +1,7 @@
 <?php
+
+    //Hector Armando Rubio Ayala LISI 3-1
+    
     require_once("../admin/template/header.php");
     require_once("../../controllers/torneosController.php");
     //Instanciar el controlador para ejecutar la consulta.

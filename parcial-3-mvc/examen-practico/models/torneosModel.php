@@ -1,5 +1,7 @@
 <?php
 
+//Hector Armando Rubio Ayala LISI 3-1
+
     require_once("../../config/DataBase.php");
 
     class torneosModel{
