@@ -1,10 +1,12 @@
 <?php
     /**
+     * //Hector Armando Rubio Ayala LISI 3-1
      * Crear una base para conexión a base de datos
      * mediante PDO
      */
 
     class DataBase{
+        
         //Atributos de la clase DataBase
         private $host = "localhost";
         private $db = "proyecto";
