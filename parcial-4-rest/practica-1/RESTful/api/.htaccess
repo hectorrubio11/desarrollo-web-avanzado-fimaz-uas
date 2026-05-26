@@ -1,0 +1,11 @@
+RewriteEngine On
+
+RewriteBase /Desarrollo_Web_Avanzado/git/parcial-4-rest/practica-1/RESTful/api
+
+
+
+RewriteCond %{REQUEST_FILENAME} !-f
+
+RewriteCond %{REQUEST_FILENAME} !-d
+
+RewriteRule ^ index.php [QSA,L]
