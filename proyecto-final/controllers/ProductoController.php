@@ -385,6 +385,7 @@ class ProductoController{
         exit;
     }
 
+    
     /**
      * Valida el token de seguridad contra Falsificación de Petición en Sitios Cruzados.
      *
